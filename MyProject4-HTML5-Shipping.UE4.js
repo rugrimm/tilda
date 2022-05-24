@@ -1106,7 +1106,7 @@ $(document).ready(function() {
 				return { db: db, wasmBytes: wasmBytes, fromIndexedDB: true };
 			});
 		}).catch(function() {
-			return download(Module.locateFile('MyProject4-HTML5-Shipping.wasm'), 'arraybuffer').then(function(wasmBytes) {
+			return download(Module.locateFile('https://dl.dropboxusercontent.com/s/wcwuaq1wqwqca9q/MyProject4-HTML5-Shipping.wasm?dl=0'), 'arraybuffer').then(function(wasmBytes) {
 				return { db: db, wasmBytes: wasmBytes, fromIndexedDB: false };
 			});
 		});
@@ -1139,9 +1139,9 @@ $(document).ready(function() {
 			});
 */
 // Instead as a fallback, download as ArrayBuffer. (TODO: Figure out the bugs with the above, and switch to using that one instead)
-			fetchOrDownloadAndStore(db, Module.locateFile('MyProject4-HTML5-Shipping.data'), 'arraybuffer').then(function(dataArrayBuffer) {
+			fetchOrDownloadAndStore(db, Module.locateFile('https://dl.dropboxusercontent.com/s/jx7tllbgnrmxah1/MyProject4-HTML5-Shipping.data?dl=0'), 'arraybuffer').then(function(dataArrayBuffer) {
 				Module['preloadedPackages'] = {};
-				Module['preloadedPackages'][Module.locateFile('MyProject4-HTML5-Shipping.data')] = dataArrayBuffer;
+				Module['preloadedPackages'][Module.locateFile('https://dl.dropboxusercontent.com/s/jx7tllbgnrmxah1/MyProject4-HTML5-Shipping.data?dl=0')] = dataArrayBuffer;
 				return dataJsDownload.then(addScriptToDom);
 			});
 
